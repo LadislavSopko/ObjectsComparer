@@ -67,8 +67,8 @@ namespace ObjectsComparer.Tests
 
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual("ReadOnlyProperty", differences.First().MemberPath);
-            Assert.AreEqual("1.99", differences.First().Value1);
-            Assert.AreEqual("0.89", differences.First().Value2);
+            Assert.AreEqual("1,99", differences.First().Value1);
+            Assert.AreEqual("0,89", differences.First().Value2);
         }
 
         [Test]
