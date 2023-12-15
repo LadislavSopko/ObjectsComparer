@@ -8,7 +8,7 @@ namespace ObjectsComparer.Tests
         [Test]
         public void Instance()
         {
-            Assert.IsNotNull(DoNotCompareValueComparer.Instance);
+            Assert.That(null != DoNotCompareValueComparer.Instance);
         }
 
         [Test]
@@ -16,7 +16,7 @@ namespace ObjectsComparer.Tests
         {
             var result = DoNotCompareValueComparer.Instance.Compare(25, "String", new ComparisonSettings());
 
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
 
         [TestCase(25)]

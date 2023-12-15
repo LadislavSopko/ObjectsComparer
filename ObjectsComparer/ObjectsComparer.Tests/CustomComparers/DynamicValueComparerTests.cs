@@ -43,7 +43,7 @@ namespace ObjectsComparer.Tests
 
             var result = comparer.Compare(null, "25", new ComparisonSettings());
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace ObjectsComparer.Tests
 
             var result = comparer.Compare("23", null, new ComparisonSettings());
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
         }
 
         [Test]
@@ -113,7 +113,7 @@ namespace ObjectsComparer.Tests
 
             var result = comparer.Compare(dt1, dt2);
             
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace ObjectsComparer.Tests
 
             var toString = difference.ToString();
 
-            Assert.IsTrue(toString.Contains("Property1"));
-            Assert.IsTrue(toString.Contains("12345"));
-            Assert.IsTrue(toString.Contains("12346"));
+            Assert.That(toString.Contains("Property1"));
+            Assert.That(toString.Contains("12345"));
+            Assert.That(toString.Contains("12346"));
         }
     }
 }

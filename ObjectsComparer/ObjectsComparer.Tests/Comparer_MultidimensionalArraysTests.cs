@@ -17,7 +17,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntOfInt[0][1]", differences[0].MemberPath);
@@ -35,7 +35,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(2, differences.Count);
             Assert.AreEqual("IntOfInt[0][0]", differences[0].MemberPath);
@@ -56,7 +56,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntOfInt.Length", differences[0].MemberPath);
@@ -74,7 +74,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntOfInt.Length", differences[0].MemberPath);
@@ -92,7 +92,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntOfInt[1].Length", differences[0].MemberPath);
@@ -110,7 +110,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntOfInt", differences[0].MemberPath);
@@ -128,7 +128,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntOfInt", differences[0].MemberPath);
@@ -145,7 +145,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -157,7 +157,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -169,7 +169,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -181,7 +181,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -193,7 +193,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -206,7 +206,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt.Dimension0", differences[0].MemberPath);
@@ -224,7 +224,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt.Dimension1", differences[0].MemberPath);
@@ -242,7 +242,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt[0,1]", differences[0].MemberPath);
@@ -260,7 +260,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt[0,0]", differences[0].MemberPath);
@@ -278,7 +278,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt[1,1]", differences[0].MemberPath);
@@ -296,7 +296,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt", differences[0].MemberPath);
@@ -314,7 +314,7 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(1, differences.Count);
             Assert.AreEqual("IntInt", differences[0].MemberPath);
@@ -331,7 +331,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -343,7 +343,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -355,7 +355,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
     }
 }

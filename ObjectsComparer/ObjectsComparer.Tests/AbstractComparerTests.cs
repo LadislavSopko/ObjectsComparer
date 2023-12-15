@@ -36,7 +36,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare("string1", "string2", out var outDifferences);
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string2");
             Assert.AreEqual(differences, outDifferences);
         }
@@ -49,7 +49,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare("string1", "string1", out var outDifferences);
 
-            Assert.IsTrue(result);
+            Assert.That(result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string1");
             Assert.AreEqual(differences, outDifferences);
         }
@@ -62,7 +62,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare("string1", "string2");
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string2");
         }
 
@@ -73,7 +73,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare("string1", "string2");
 
-            Assert.IsTrue(result);
+            Assert.That(result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string2");
         }
 
@@ -85,7 +85,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(typeof(string), "string1", "string2", out var outDifferences);
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string2");
             Assert.AreEqual(differences, outDifferences);
         }
@@ -98,7 +98,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(typeof(string), "string1", "string1", out var outDifferences);
 
-            Assert.IsTrue(result);
+            Assert.That(result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string1");
             Assert.AreEqual(differences, outDifferences);
         }
@@ -111,7 +111,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(typeof(string), "string1", "string2");
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string2");
         }
 
@@ -122,7 +122,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(typeof(string), "string1", "string2");
 
-            Assert.IsTrue(result);
+            Assert.That(result);
             _comparer.Received().CalculateDifferences(typeof(string), "string1", "string2");
         }
     }

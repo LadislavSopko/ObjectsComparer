@@ -21,7 +21,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
             stringComparer.Received().Compare(Arg.Any<object>(), Arg.Any<object>(), Arg.Any<ComparisonSettings>());
         }
 
@@ -39,9 +39,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "TestProperty1" && d.Value1 == "ABC" && d.Value2 == "BCD"));
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "TestProperty2" && d.Value1 == "ABC" && d.Value2 == "ABC"));
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "ClassB.Property1" && d.Value1 == "Str1" && d.Value2 == "Str1"));
+            Assert.That(differences.Any(d => d.MemberPath == "TestProperty1" && d.Value1 == "ABC" && d.Value2 == "BCD"));
+            Assert.That(differences.Any(d => d.MemberPath == "TestProperty2" && d.Value1 == "ABC" && d.Value2 == "ABC"));
+            Assert.That(differences.Any(d => d.MemberPath == "ClassB.Property1" && d.Value1 == "Str1" && d.Value2 == "Str1"));
             stringComparer.Received().Compare(Arg.Any<object>(), Arg.Any<object>(), Arg.Any<ComparisonSettings>());
             stringComparer.Received().ToString(Arg.Any<object>());
         }
@@ -60,8 +60,8 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "IntArray[0]" && d.Value1 == "1" && d.Value2 == "1"));
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "IntArray[1]" && d.Value1 == "2" && d.Value2 == "3"));
+            Assert.That(differences.Any(d => d.MemberPath == "IntArray[0]" && d.Value1 == "1" && d.Value2 == "1"));
+            Assert.That(differences.Any(d => d.MemberPath == "IntArray[1]" && d.Value1 == "2" && d.Value2 == "3"));
             stringComparer.Received().Compare(Arg.Any<object>(), Arg.Any<object>(), Arg.Any<ComparisonSettings>());
             stringComparer.Received().ToString(Arg.Any<object>());
         }
@@ -79,7 +79,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
             intComparer.Received().Compare(Arg.Any<object>(), Arg.Any<object>(), Arg.Any<ComparisonSettings>());
         }
 
@@ -95,7 +95,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
             valueComparer.Received(1).Compare(Arg.Any<object>(), Arg.Any<object>(), Arg.Any<ComparisonSettings>());
         }
 
@@ -110,7 +110,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -141,7 +141,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -174,7 +174,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -309,7 +309,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -323,7 +323,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -337,7 +337,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -352,7 +352,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
             valueComparer.Received(1).Compare(Arg.Is("ABC"), Arg.Is("ABC"), Arg.Any<ComparisonSettings>());
         }
 
@@ -366,7 +366,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         private IValueComparer CreateClassBComparerAsPhone()

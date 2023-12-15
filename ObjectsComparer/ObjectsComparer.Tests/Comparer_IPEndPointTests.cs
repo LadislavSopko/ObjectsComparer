@@ -16,7 +16,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -29,11 +29,11 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
             Assert.AreEqual(2, differences.Count);
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "Address.Address" && d.Value1 == "50" && d.Value2 == "52"));
-            Assert.IsTrue(differences.Any(d => d.MemberPath == "Port" && d.Value1 == "20" && d.Value2 == "21"));
+            Assert.That(differences.Any(d => d.MemberPath == "Address.Address" && d.Value1 == "50" && d.Value2 == "52"));
+            Assert.That(differences.Any(d => d.MemberPath == "Port" && d.Value1 == "20" && d.Value2 == "21"));
         }
     }
 }

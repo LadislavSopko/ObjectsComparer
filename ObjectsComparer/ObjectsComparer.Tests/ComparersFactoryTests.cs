@@ -79,7 +79,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(typeof(B), b1, b2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
             _comparerB.Received().CalculateDifferences(b1, b2);
         }
     }

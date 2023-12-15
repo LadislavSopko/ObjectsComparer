@@ -73,7 +73,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparer2FromCollection = collection.GetComparer(memberInfo2);
 
-            Assert.IsNull(valueComparer2FromCollection);
+            Assert.That(null == valueComparer2FromCollection);
         }
 
         [Test]
@@ -177,7 +177,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]
@@ -216,7 +216,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(typeof(int));
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]
@@ -230,7 +230,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(typeof(string));
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [TestCase(null)]
@@ -296,7 +296,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]
@@ -359,7 +359,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer("Prop1");
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]

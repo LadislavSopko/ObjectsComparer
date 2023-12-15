@@ -31,7 +31,7 @@ namespace ObjectsComparer.Tests
         {
             var comparer = new TypesComparer(new ComparisonSettings(), null, null);
 
-            Assert.IsTrue(comparer.Compare(typeof(Type), null, null));
+            Assert.That(comparer.Compare(typeof(Type), null, null));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace ObjectsComparer.Tests
             var obj1 = typeof(string);
             var obj2 = typeof(string);
 
-            Assert.IsTrue(comparer.Compare(typeof(Type), obj1, obj2));
+            Assert.That(comparer.Compare(typeof(Type), obj1, obj2));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace ObjectsComparer.Tests
             var obj1 = typeof(string);
             var obj2 = typeof(bool);
 
-            Assert.IsFalse(comparer.Compare(typeof(Type), obj1, obj2));
+            Assert.That(!comparer.Compare(typeof(Type), obj1, obj2));
         }
     }
 }
