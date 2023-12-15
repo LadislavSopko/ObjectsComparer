@@ -31,8 +31,8 @@ namespace ObjectsComparer.Tests
 
             Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("MyUri", differences.First().MemberPath);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("MyUri", differences.First().MemberPath);
         }
     }
 }

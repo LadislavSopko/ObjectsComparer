@@ -82,8 +82,8 @@ namespace ObjectsComparer.Tests
             var result = comparer.Compare(str1, str2, new ComparisonSettings());
             var toString = comparer.ToString(str1);
 
-            Assert.AreEqual(expectedResult, result);
-            Assert.AreEqual(str1, toString);
+            ClassicAssert.AreEqual(expectedResult, result);
+            ClassicAssert.AreEqual(str1, toString);
         }
 
         [TestCase("Str1", "Str2", true)]
@@ -96,8 +96,8 @@ namespace ObjectsComparer.Tests
             var result = comparer.Compare(str1, str2, new ComparisonSettings());
             var toString = comparer.ToString(str1);
 
-            Assert.AreEqual(expectedResult, result);
-            Assert.AreEqual(str1, toString);
+            ClassicAssert.AreEqual(expectedResult, result);
+            ClassicAssert.AreEqual(str1, toString);
         }
         
         [Test]

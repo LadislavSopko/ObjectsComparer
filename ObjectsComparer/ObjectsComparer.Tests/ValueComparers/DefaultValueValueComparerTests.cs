@@ -26,7 +26,7 @@ namespace ObjectsComparer.Tests
 
             var actualResult = comparer.Compare(obj1, obj2, new ComparisonSettings());
 
-            Assert.AreEqual(expectedResult, actualResult);
+            ClassicAssert.AreEqual(expectedResult, actualResult);
         }
 
         [TestCase(null, "none", true)]
@@ -44,7 +44,7 @@ namespace ObjectsComparer.Tests
 
             var actualResult = comparer.Compare(obj1, obj2, new ComparisonSettings());
 
-            Assert.AreEqual(expectedResult, actualResult);
+            ClassicAssert.AreEqual(expectedResult, actualResult);
         }
     }
 }

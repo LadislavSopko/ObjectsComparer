@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using NSubstitute;
+using NUnit.Framework.Legacy;
 
 namespace ObjectsComparer.Tests
 {
@@ -28,7 +29,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(3, differences.Count);
+            ClassicAssert.AreEqual(3, differences.Count);
             Assert.That(differences.Any(d => d.MemberPath == "Field1" && d.Value1 == "A" && d.Value2 == "B"));
             Assert.That(differences.Any(d => d.MemberPath == "Field2" && d.Value1 == "5" && d.Value2 == "8"));
             Assert.That(differences.Any(d => d.MemberPath == "Field3" && d.Value1 == "True" && d.Value2 == "False"));
@@ -54,7 +55,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(3, differences.Count);
+            ClassicAssert.AreEqual(3, differences.Count);
             Assert.That(differences.Any(d => d.MemberPath == "Field1" && d.Value1 == "A" && d.Value2 == "B"));
             Assert.That(differences.Any(d => d.MemberPath == "Field2" && d.Value1 == "5" && d.Value2 == "8"));
             Assert.That(differences.Any(d => d.DifferenceType == DifferenceTypes.MissedMemberInFirstObject && d.MemberPath == "Field3" && d.Value2 == "False"));
@@ -80,7 +81,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(3, differences.Count);
+            ClassicAssert.AreEqual(3, differences.Count);
             Assert.That(differences.Any(d => d.MemberPath == "Field1" && d.Value1 == "A" && d.Value2 == "B"));
             Assert.That(differences.Any(d => d.DifferenceType == DifferenceTypes.ValueMismatch && d.MemberPath == "Field2" && d.Value1 == "5" && d.Value2 == "0"));
             Assert.That(differences.Any(d => d.DifferenceType == DifferenceTypes.ValueMismatch && d.MemberPath == "Field4" && d.Value2 == "S"));
@@ -99,7 +100,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(1, differences.Count);
             Assert.That(differences.Any(d => d.MemberPath == "Field1.FieldSub1" && d.Value1 == "10" && d.Value2 == "8"));
         }
 
@@ -122,7 +123,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(2, differences.Count);
+            ClassicAssert.AreEqual(2, differences.Count);
             Assert.That(differences.Any(
                 d => d.MemberPath == "Field1" && d.Value1 == "A" && d.Value2 == "5" && d.DifferenceType == DifferenceTypes.TypeMismatch));
             Assert.That(differences.Any(
@@ -164,7 +165,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(2, differences.Count);
+            ClassicAssert.AreEqual(2, differences.Count);
             Assert.That(differences.Any(
                 d => d.MemberPath == "Field1" && d.DifferenceType == DifferenceTypes.MissedMemberInSecondObject));
             Assert.That(differences.Any(
@@ -190,7 +191,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(2, differences.Count);
+            ClassicAssert.AreEqual(2, differences.Count);
             Assert.That(differences.Any(
                 d => d.MemberPath == "Field1" && d.Value1 == "A" && d.DifferenceType == DifferenceTypes.ValueMismatch));
             Assert.That(differences.Any(
@@ -241,7 +242,7 @@ namespace ObjectsComparer.Tests
 
             Assert.That(!isEqual);
             stringComparer.Received().Compare("A", "B", Arg.Any<ComparisonSettings>());
-            Assert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(1, differences.Count);
             Assert.That(differences.Any(
                 d => d.MemberPath == "Field1" && d.Value1 == "A" && d.Value2 == "B" && d.DifferenceType == DifferenceTypes.ValueMismatch));
         }
@@ -267,7 +268,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(1, differences.Count);
             Assert.That(differences.Any(
                 d => d.MemberPath == "Field1" && d.Value1 == string.Empty && d.Value2 == "5" && d.DifferenceType == DifferenceTypes.TypeMismatch));
         }
@@ -311,7 +312,7 @@ namespace ObjectsComparer.Tests
             var differences = differencesEnum.ToList();
 
             Assert.That(!isEqual);
-            Assert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(1, differences.Count);
             Assert.That(differences.Any(
                 d => d.MemberPath == "Field1" && d.DifferenceType == DifferenceTypes.MissedMemberInSecondObject));
         }

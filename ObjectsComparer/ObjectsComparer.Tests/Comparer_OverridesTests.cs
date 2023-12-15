@@ -125,9 +125,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("ClassB", differences[0].MemberPath);
-            Assert.AreEqual("123-456-7898", differences[0].Value1);
-            Assert.AreEqual("(123)-456-7899", differences[0].Value2);
+            ClassicAssert.AreEqual("ClassB", differences[0].MemberPath);
+            ClassicAssert.AreEqual("123-456-7898", differences[0].Value1);
+            ClassicAssert.AreEqual("(123)-456-7899", differences[0].Value2);
         }
 
         [Test]
@@ -156,9 +156,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("ClassB.Property1", differences[0].MemberPath);
-            Assert.AreEqual("123-456-7898", differences[0].Value1);
-            Assert.AreEqual("(123)-456-7899", differences[0].Value2);
+            ClassicAssert.AreEqual("ClassB.Property1", differences[0].MemberPath);
+            ClassicAssert.AreEqual("123-456-7898", differences[0].Value1);
+            ClassicAssert.AreEqual("(123)-456-7899", differences[0].Value2);
         }
 
         [Test]
@@ -190,9 +190,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("ClassB.Property1", differences[0].MemberPath);
-            Assert.AreEqual("123-456-7898", differences[0].Value1);
-            Assert.AreEqual("(123)-456-7899", differences[0].Value2);
+            ClassicAssert.AreEqual("ClassB.Property1", differences[0].MemberPath);
+            ClassicAssert.AreEqual("123-456-7898", differences[0].Value1);
+            ClassicAssert.AreEqual("(123)-456-7899", differences[0].Value2);
         }
 
         [Test]

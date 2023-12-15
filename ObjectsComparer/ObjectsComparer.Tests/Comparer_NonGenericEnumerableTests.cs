@@ -30,10 +30,10 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("NonGenericEnumerable", differences.First().MemberPath);
-            Assert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
-            Assert.AreEqual("2", differences.First().Value1);
-            Assert.AreEqual("1", differences.First().Value2);
+            ClassicAssert.AreEqual("NonGenericEnumerable", differences.First().MemberPath);
+            ClassicAssert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
+            ClassicAssert.AreEqual("2", differences.First().Value1);
+            ClassicAssert.AreEqual("1", differences.First().Value2);
         }
 
         [Test]
@@ -46,9 +46,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("NonGenericEnumerable[1].Property1", differences.First().MemberPath);
-            Assert.AreEqual("Str2", differences.First().Value1);
-            Assert.AreEqual("Str3", differences.First().Value2);
+            ClassicAssert.AreEqual("NonGenericEnumerable[1].Property1", differences.First().MemberPath);
+            ClassicAssert.AreEqual("Str2", differences.First().Value1);
+            ClassicAssert.AreEqual("Str3", differences.First().Value2);
         }
 
         [Test]
@@ -72,13 +72,13 @@ namespace ObjectsComparer.Tests
 
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
-            Assert.AreEqual(2, differences.Count);
-            Assert.AreEqual("NonGenericEnumerable[0]", differences[0].MemberPath);
-            Assert.AreEqual(string.Empty, differences[0].Value1);
-            Assert.AreEqual("Str2", differences[0].Value2);
-            Assert.AreEqual("NonGenericEnumerable[1]", differences[1].MemberPath);
-            Assert.AreEqual("Str1", differences[1].Value1);
-            Assert.AreEqual(string.Empty, differences[1].Value2);
+            ClassicAssert.AreEqual(2, differences.Count);
+            ClassicAssert.AreEqual("NonGenericEnumerable[0]", differences[0].MemberPath);
+            ClassicAssert.AreEqual(string.Empty, differences[0].Value1);
+            ClassicAssert.AreEqual("Str2", differences[0].Value2);
+            ClassicAssert.AreEqual("NonGenericEnumerable[1]", differences[1].MemberPath);
+            ClassicAssert.AreEqual("Str1", differences[1].Value1);
+            ClassicAssert.AreEqual(string.Empty, differences[1].Value2);
         }
 
         [Test]
@@ -91,9 +91,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("NonGenericEnumerable[1]", differences.First().MemberPath);
-            Assert.AreEqual("ObjectsComparer.Tests.TestClasses.B", differences.First().Value1);
-            Assert.AreEqual("Str3", differences.First().Value2);
+            ClassicAssert.AreEqual("NonGenericEnumerable[1]", differences.First().MemberPath);
+            ClassicAssert.AreEqual("ObjectsComparer.Tests.TestClasses.B", differences.First().Value1);
+            ClassicAssert.AreEqual("Str3", differences.First().Value2);
         }
 
         [Test]
@@ -118,9 +118,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("NonGenericEnumerableImplementation.Property1", differences.First().MemberPath);
-            Assert.AreEqual("Str3", differences.First().Value1);
-            Assert.AreEqual("Str4", differences.First().Value2);
+            ClassicAssert.AreEqual("NonGenericEnumerableImplementation.Property1", differences.First().MemberPath);
+            ClassicAssert.AreEqual("Str3", differences.First().Value1);
+            ClassicAssert.AreEqual("Str4", differences.First().Value2);
         }
 
         [Test]
@@ -133,9 +133,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("NonGenericEnumerable[]", differences.First().MemberPath);
-            Assert.AreEqual("System.Collections.ArrayList", differences.First().Value1);
-            Assert.AreEqual(string.Empty, differences.First().Value2);
+            ClassicAssert.AreEqual("NonGenericEnumerable[]", differences.First().MemberPath);
+            ClassicAssert.AreEqual("System.Collections.ArrayList", differences.First().Value1);
+            ClassicAssert.AreEqual(string.Empty, differences.First().Value2);
         }
 
         [Test]

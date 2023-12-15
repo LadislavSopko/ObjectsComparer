@@ -27,7 +27,7 @@ namespace ObjectsComparer.Tests
         {
             var result = DoNotCompareValueComparer.Instance.ToString(value);
 
-            Assert.AreEqual(string.Empty, result);
+            ClassicAssert.AreEqual(string.Empty, result);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ObjectsComparer.Tests
 
             var result = comparer.Compare(s1, s2, new ComparisonSettings());
 
-            Assert.AreEqual(expectedResult, result);
+            ClassicAssert.AreEqual(expectedResult, result);
         }
 
         [TestCase(null, "")]
@@ -31,7 +31,7 @@ namespace ObjectsComparer.Tests
 
             var result = comparer.ToString(s);
 
-            Assert.AreEqual(expectedToString, result);
+            ClassicAssert.AreEqual(expectedToString, result);
         }
     }
 }

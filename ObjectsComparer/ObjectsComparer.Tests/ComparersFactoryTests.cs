@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NSubstitute;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using ObjectsComparer.Tests.TestClasses;
 
 namespace ObjectsComparer.Tests
@@ -44,7 +45,7 @@ namespace ObjectsComparer.Tests
 
             var comparer = factory.GetObjectsComparer<string>(settings);
 
-            Assert.AreEqual(settings, comparer.Settings);
+            ClassicAssert.AreEqual(settings, comparer.Settings);
         }
 
         [Test]
@@ -55,7 +56,7 @@ namespace ObjectsComparer.Tests
 
             var comparer = factory.GetObjectsComparer(typeof(string), settings);
 
-            Assert.AreEqual(settings, comparer.Settings);
+            ClassicAssert.AreEqual(settings, comparer.Settings);
         }
 
         [Test]
@@ -65,7 +66,7 @@ namespace ObjectsComparer.Tests
 
             var comparer = factory.GetObjectsComparer<B>();
 
-            Assert.AreEqual(_comparerB, comparer);
+            ClassicAssert.AreEqual(_comparerB, comparer);
         }
 
         [Test]
