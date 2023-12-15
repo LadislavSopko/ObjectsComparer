@@ -13,7 +13,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = ((Type) null).InheritsFrom(typeof(string));
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
         }
 
         [Test]
@@ -21,7 +21,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = typeof(string).InheritsFrom(null);
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = typeof(string).InheritsFrom(typeof(string));
 
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = typeof(List<string>).InheritsFrom(typeof(List<string>));
 
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = typeof(List<string>).InheritsFrom(typeof(List<>));
 
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = typeof(List<string>).InheritsFrom(typeof(IList<>));
 
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace ObjectsComparer.Tests.Utils
         {
             var result = typeof(string).InheritsFrom(typeof(object));
 
-            Assert.IsTrue(result);
+            Assert.That(result);
         }
     }
 }

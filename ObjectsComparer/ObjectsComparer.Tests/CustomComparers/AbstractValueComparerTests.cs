@@ -13,7 +13,7 @@ namespace ObjectsComparer.Tests
 
             var result = valueComparer.ToString("str1");
 
-            Assert.AreEqual("str1", result);
+            ClassicAssert.AreEqual("str1", result);
         }
     }
 }

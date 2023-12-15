@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NSubstitute;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace ObjectsComparer.Tests
 {
@@ -36,9 +37,9 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(1, 2, out var outDifferences);
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
             _comparer.Received().CalculateDifferences(1, 2);
-            Assert.AreEqual(differences, outDifferences);
+            ClassicAssert.AreEqual(differences, outDifferences);
         }
 
         [Test]
@@ -49,9 +50,9 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(1, 1, out var outDifferences);
 
-            Assert.IsTrue(result);
+            Assert.That(result);
             _comparer.Received().CalculateDifferences(1, 1);
-            Assert.AreEqual(differences, outDifferences);
+            ClassicAssert.AreEqual(differences, outDifferences);
         }
 
         [Test]
@@ -62,7 +63,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(1, 2);
 
-            Assert.IsFalse(result);
+            Assert.That(!result);
             _comparer.Received().CalculateDifferences(1, 2);
         }
 
@@ -73,7 +74,7 @@ namespace ObjectsComparer.Tests
 
             var result = _comparer.Compare(1, 2);
 
-            Assert.IsTrue(result);
+            Assert.That(result);
             _comparer.Received().CalculateDifferences(1, 2);
         }
     }

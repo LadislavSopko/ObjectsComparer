@@ -33,13 +33,13 @@ namespace ObjectsComparer.Tests
 
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
-            Assert.AreEqual(2, differences.Count);
-            Assert.AreEqual("Property1", differences[1].MemberPath);
-            Assert.AreEqual("str11", differences[1].Value1);
-            Assert.AreEqual("str21", differences[1].Value2);
-            Assert.AreEqual("Property2", differences[0].MemberPath);
-            Assert.AreEqual("str12", differences[0].Value1);
-            Assert.AreEqual("str22", differences[0].Value2);
+            ClassicAssert.AreEqual(2, differences.Count);
+            ClassicAssert.AreEqual("Property1", differences[1].MemberPath);
+            ClassicAssert.AreEqual("str11", differences[1].Value1);
+            ClassicAssert.AreEqual("str21", differences[1].Value2);
+            ClassicAssert.AreEqual("Property2", differences[0].MemberPath);
+            ClassicAssert.AreEqual("str12", differences[0].Value1);
+            ClassicAssert.AreEqual("str22", differences[0].Value2);
         }
     }
 }

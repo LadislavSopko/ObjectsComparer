@@ -2,6 +2,7 @@
 using System.Reflection;
 using NSubstitute;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using ObjectsComparer.Exceptions;
 
 namespace ObjectsComparer.Tests
@@ -37,7 +38,7 @@ namespace ObjectsComparer.Tests
             collection.AddComparer(memberInfo, valueComparer);
 
             var exception = Assert.Throws<ValueComparerExistsException>(() => collection.AddComparer(memberInfo, valueComparer));
-            Assert.AreEqual(memberInfo, exception.MemberInfo);
+            ClassicAssert.AreEqual(memberInfo, exception.MemberInfo);
         }
 
         [Test]
@@ -56,8 +57,8 @@ namespace ObjectsComparer.Tests
             var valueComparer1FromCollection = collection.GetComparer(memberInfo1);
             var valueComparer2FromCollection = collection.GetComparer(memberInfo2);
 
-            Assert.AreEqual(valueComparer1, valueComparer1FromCollection);
-            Assert.AreEqual(valueComparer2, valueComparer2FromCollection);
+            ClassicAssert.AreEqual(valueComparer1, valueComparer1FromCollection);
+            ClassicAssert.AreEqual(valueComparer2, valueComparer2FromCollection);
         }
 
         [Test]
@@ -73,7 +74,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparer2FromCollection = collection.GetComparer(memberInfo2);
 
-            Assert.IsNull(valueComparer2FromCollection);
+            Assert.That(null == valueComparer2FromCollection);
         }
 
         [Test]
@@ -104,7 +105,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.AreEqual(valueComparer, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer, valueComparerFromCollection);
         }
 
         [Test]
@@ -118,7 +119,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(typeof(string));
 
-            Assert.AreEqual(valueComparer, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer, valueComparerFromCollection);
         }
 
         [Test]
@@ -142,8 +143,8 @@ namespace ObjectsComparer.Tests
             collection.AddComparer(typeof(string), valueComparer2, mi => mi.Name == "Prop1");
 
             var exception = Assert.Throws<AmbiguousComparerOverrideResolutionException>(() => collection.GetComparer(memberInfo));
-            Assert.AreEqual(memberInfo, exception.MemberInfo);
-            Assert.AreEqual("Prop1", exception.MemberName);
+            ClassicAssert.AreEqual(memberInfo, exception.MemberInfo);
+            ClassicAssert.AreEqual("Prop1", exception.MemberName);
         }
 
         [Test]
@@ -160,7 +161,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.AreEqual(valueComparer1, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer1, valueComparerFromCollection);
         }
 
         [Test]
@@ -177,7 +178,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]
@@ -191,7 +192,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(typeof(string));
 
-            Assert.AreEqual(valueComparer2, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer2, valueComparerFromCollection);
         }
 
         [Test]
@@ -204,7 +205,7 @@ namespace ObjectsComparer.Tests
             collection.AddComparer(typeof(string), valueComparer2);
 
             var exception = Assert.Throws<AmbiguousComparerOverrideResolutionException>(() => collection.GetComparer(typeof(string)));
-            Assert.AreEqual(typeof(string), exception.Type);
+            ClassicAssert.AreEqual(typeof(string), exception.Type);
         }
 
         [Test]
@@ -216,7 +217,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(typeof(int));
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]
@@ -230,7 +231,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(typeof(string));
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [TestCase(null)]
@@ -264,7 +265,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.AreEqual(valueComparer, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer, valueComparerFromCollection);
         }
 
         [Test]
@@ -296,7 +297,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]
@@ -313,7 +314,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer(memberInfo);
 
-            Assert.AreEqual(valueComparer2, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer2, valueComparerFromCollection);
         }
 
         [Test]
@@ -333,7 +334,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer("Prop1");
 
-            Assert.AreEqual(valueComparer, valueComparerFromCollection);
+            ClassicAssert.AreEqual(valueComparer, valueComparerFromCollection);
         }
 
         [Test]
@@ -359,7 +360,7 @@ namespace ObjectsComparer.Tests
 
             var valueComparerFromCollection = collection.GetComparer("Prop1");
 
-            Assert.IsNull(valueComparerFromCollection);
+            Assert.That(null == valueComparerFromCollection);
         }
 
         [Test]

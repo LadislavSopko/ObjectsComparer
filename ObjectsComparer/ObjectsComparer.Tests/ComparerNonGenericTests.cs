@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using ObjectsComparer.Tests.TestClasses;
 
 namespace ObjectsComparer.Tests
@@ -17,7 +18,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -32,14 +33,14 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("IntProperty", differences[0].MemberPath);
-            Assert.AreEqual("10", differences[0].Value1);
-            Assert.AreEqual("8", differences[0].Value2);
-            Assert.AreEqual("DateTimeProperty", differences[1].MemberPath);
+            ClassicAssert.AreEqual("IntProperty", differences[0].MemberPath);
+            ClassicAssert.AreEqual("10", differences[0].Value1);
+            ClassicAssert.AreEqual("8", differences[0].Value2);
+            ClassicAssert.AreEqual("DateTimeProperty", differences[1].MemberPath);
             // ReSharper disable once SpecifyACultureInStringConversionExplicitly
-            Assert.AreEqual(date1.ToString(), differences[1].Value1);
+            ClassicAssert.AreEqual(date1.ToString(), differences[1].Value1);
             // ReSharper disable once SpecifyACultureInStringConversionExplicitly
-            Assert.AreEqual(date2.ToString(), differences[1].Value2);
+            ClassicAssert.AreEqual(date2.ToString(), differences[1].Value2);
         }
     }
 }

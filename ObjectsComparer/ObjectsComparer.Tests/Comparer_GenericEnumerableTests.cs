@@ -3,6 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using ObjectsComparer.Tests.TestClasses;
 using System.Collections.Generic;
+using NUnit.Framework.Legacy;
 
 namespace ObjectsComparer.Tests
 {
@@ -18,7 +19,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -31,10 +32,10 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("IntArray.Length", differences[0].MemberPath);
-            Assert.AreEqual("2", differences[0].Value1);
-            Assert.AreEqual("3", differences[0].Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("IntArray.Length", differences[0].MemberPath);
+            ClassicAssert.AreEqual("2", differences[0].Value1);
+            ClassicAssert.AreEqual("3", differences[0].Value2);
         }
 
         [Test]
@@ -47,9 +48,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("IntArray[1]", differences.First().MemberPath);
-            Assert.AreEqual("2", differences.First().Value1);
-            Assert.AreEqual("3", differences.First().Value2);
+            ClassicAssert.AreEqual("IntArray[1]", differences.First().MemberPath);
+            ClassicAssert.AreEqual("2", differences.First().Value1);
+            ClassicAssert.AreEqual("3", differences.First().Value2);
         }
 
         [Test]
@@ -62,10 +63,10 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("IntArray", differences.First().MemberPath);
-            Assert.AreEqual(string.Empty, differences.First().Value1);
-            Assert.AreEqual(a2.IntArray.ToString(), differences.First().Value2);
-            Assert.AreEqual(DifferenceTypes.ValueMismatch, differences.First().DifferenceType);
+            ClassicAssert.AreEqual("IntArray", differences.First().MemberPath);
+            ClassicAssert.AreEqual(string.Empty, differences.First().Value1);
+            ClassicAssert.AreEqual(a2.IntArray.ToString(), differences.First().Value2);
+            ClassicAssert.AreEqual(DifferenceTypes.ValueMismatch, differences.First().DifferenceType);
         }
 
         [Test]
@@ -78,9 +79,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("IntArray", differences.First().MemberPath);
-            Assert.AreEqual(a1.IntArray.ToString(), differences.First().Value1);
-            Assert.AreEqual(string.Empty, differences.First().Value2);
+            ClassicAssert.AreEqual("IntArray", differences.First().MemberPath);
+            ClassicAssert.AreEqual(a1.IntArray.ToString(), differences.First().Value1);
+            ClassicAssert.AreEqual(string.Empty, differences.First().Value2);
         }
 
         [Test]
@@ -92,7 +93,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -105,10 +106,10 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("ArrayOfB.Length", differences[0].MemberPath);
-            Assert.AreEqual("1", differences[0].Value1);
-            Assert.AreEqual("2", differences[0].Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("ArrayOfB.Length", differences[0].MemberPath);
+            ClassicAssert.AreEqual("1", differences[0].Value1);
+            ClassicAssert.AreEqual("2", differences[0].Value2);
         }
 
         [Test]
@@ -121,9 +122,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("ArrayOfB[1].Property1", differences.First().MemberPath);
-            Assert.AreEqual("Str2", differences.First().Value1);
-            Assert.AreEqual("Str3", differences.First().Value2);
+            ClassicAssert.AreEqual("ArrayOfB[1].Property1", differences.First().MemberPath);
+            ClassicAssert.AreEqual("Str2", differences.First().Value1);
+            ClassicAssert.AreEqual("Str3", differences.First().Value2);
         }
 
         [Test]
@@ -135,7 +136,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -148,11 +149,11 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences[0].DifferenceType);
-            Assert.AreEqual("CollectionOfB", differences[0].MemberPath);
-            Assert.AreEqual("2", differences[0].Value1);
-            Assert.AreEqual("1", differences[0].Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences[0].DifferenceType);
+            ClassicAssert.AreEqual("CollectionOfB", differences[0].MemberPath);
+            ClassicAssert.AreEqual("2", differences[0].Value1);
+            ClassicAssert.AreEqual("1", differences[0].Value2);
         }
 
         [Test]
@@ -165,10 +166,10 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("CollectionOfB", differences[0].MemberPath);
-            Assert.AreEqual(a1.CollectionOfB.ToString(), differences[0].Value1);
-            Assert.AreEqual(string.Empty, differences[0].Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("CollectionOfB", differences[0].MemberPath);
+            ClassicAssert.AreEqual(a1.CollectionOfB.ToString(), differences[0].Value1);
+            ClassicAssert.AreEqual(string.Empty, differences[0].Value2);
         }
 
         [Test]
@@ -181,10 +182,10 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("CollectionOfB", differences[0].MemberPath);
-            Assert.AreEqual(string.Empty, differences[0].Value1);
-            Assert.AreEqual(a2.CollectionOfB.ToString(), differences[0].Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("CollectionOfB", differences[0].MemberPath);
+            ClassicAssert.AreEqual(string.Empty, differences[0].Value1);
+            ClassicAssert.AreEqual(a2.CollectionOfB.ToString(), differences[0].Value2);
         }
 
         [Test]
@@ -197,9 +198,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("CollectionOfB[1].Property1", differences.First().MemberPath);
-            Assert.AreEqual("Str2", differences.First().Value1);
-            Assert.AreEqual("Str3", differences.First().Value2);
+            ClassicAssert.AreEqual("CollectionOfB[1].Property1", differences.First().MemberPath);
+            ClassicAssert.AreEqual("Str2", differences.First().Value1);
+            ClassicAssert.AreEqual("Str3", differences.First().Value2);
         }
 
         [Test]
@@ -211,7 +212,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -224,11 +225,11 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences[0].DifferenceType);
-            Assert.AreEqual("ClassImplementsCollectionOfB", differences[0].MemberPath);
-            Assert.AreEqual("2", differences[0].Value1);
-            Assert.AreEqual("1", differences[0].Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences[0].DifferenceType);
+            ClassicAssert.AreEqual("ClassImplementsCollectionOfB", differences[0].MemberPath);
+            ClassicAssert.AreEqual("2", differences[0].Value1);
+            ClassicAssert.AreEqual("1", differences[0].Value2);
         }
 
         [Test]
@@ -241,9 +242,9 @@ namespace ObjectsComparer.Tests
             var differences = comparer.CalculateDifferences(a1, a2).ToList();
 
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("ClassImplementsCollectionOfB[1].Property1", differences.First().MemberPath);
-            Assert.AreEqual("Str2", differences.First().Value1);
-            Assert.AreEqual("Str3", differences.First().Value2);
+            ClassicAssert.AreEqual("ClassImplementsCollectionOfB[1].Property1", differences.First().MemberPath);
+            ClassicAssert.AreEqual("Str2", differences.First().Value1);
+            ClassicAssert.AreEqual("Str3", differences.First().Value2);
         }
 
         [Test]
@@ -256,11 +257,11 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual("ListOfB", differences.First().MemberPath);
-            Assert.AreEqual(a1.ListOfB.ToString(), differences.First().Value1);
-            Assert.AreEqual(string.Empty, differences.First().Value2);
+            ClassicAssert.AreEqual("ListOfB", differences.First().MemberPath);
+            ClassicAssert.AreEqual(a1.ListOfB.ToString(), differences.First().Value1);
+            ClassicAssert.AreEqual(string.Empty, differences.First().Value2);
         }
 
         [Test]
@@ -272,7 +273,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2, out var differences);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
             CollectionAssert.IsEmpty(differences);
         }
 
@@ -288,12 +289,12 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("Flags", differences.First().MemberPath);
-            Assert.AreEqual(flags1.ToString(), differences.First().Value1);
-            Assert.AreEqual(flags2.ToString(), differences.First().Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("Flags", differences.First().MemberPath);
+            ClassicAssert.AreEqual(flags1.ToString(), differences.First().Value1);
+            ClassicAssert.AreEqual(flags2.ToString(), differences.First().Value2);
         }
 
         [TestCase(FlagsEnum.Flag1 | FlagsEnum.Flag2, FlagsEnum.Flag1 | FlagsEnum.Flag2)]
@@ -306,7 +307,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -325,13 +326,13 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("EnumerableOfB", differences.First().MemberPath);
-            Assert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
-            Assert.AreEqual("1", differences.First().Value1);
-            Assert.AreEqual("2", differences.First().Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("EnumerableOfB", differences.First().MemberPath);
+            ClassicAssert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
+            ClassicAssert.AreEqual("1", differences.First().Value1);
+            ClassicAssert.AreEqual("2", differences.First().Value2);
         }
 
         [Test]
@@ -350,13 +351,13 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual("EnumerableOfB", differences.First().MemberPath);
-            Assert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
-            Assert.AreEqual("1", differences.First().Value1);
-            Assert.AreEqual("0", differences.First().Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual("EnumerableOfB", differences.First().MemberPath);
+            ClassicAssert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
+            ClassicAssert.AreEqual("1", differences.First().Value1);
+            ClassicAssert.AreEqual("0", differences.First().Value2);
         }
 
 
@@ -369,7 +370,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -381,7 +382,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -394,12 +395,12 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(2, differences.Count);
-            Assert.IsTrue(differences.Any(
+            ClassicAssert.AreEqual(2, differences.Count);
+            Assert.That(differences.Any(
                 d => d.MemberPath == string.Empty && d.DifferenceType == DifferenceTypes.MissedElementInFirstObject && d.Value2 == "c"));
-            Assert.IsTrue(differences.Any(
+            Assert.That(differences.Any(
                 d => d.MemberPath == string.Empty && d.DifferenceType == DifferenceTypes.MissedElementInSecondObject && d.Value1 == "b"));
         }
 
@@ -413,10 +414,10 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a1, a2, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.IsTrue(differences.Any(
+            ClassicAssert.AreEqual(1, differences.Count);
+            Assert.That(differences.Any(
                 d => d.MemberPath == string.Empty && d.DifferenceType == DifferenceTypes.MissedElementInFirstObject && d.Value2 == "c"));
         }
 
@@ -429,10 +430,10 @@ namespace ObjectsComparer.Tests
             var isEqual = comparer.Compare(a, null, out var differencesEnum);
             var differences = differencesEnum.ToList();
 
-            Assert.IsFalse(isEqual);
+            Assert.That(!isEqual);
             CollectionAssert.IsNotEmpty(differences);
-            Assert.AreEqual(1, differences.Count);
-            Assert.IsTrue(differences.Any(
+            ClassicAssert.AreEqual(1, differences.Count);
+            Assert.That(differences.Any(
                 d => d.MemberPath == string.Empty && d.DifferenceType == DifferenceTypes.ValueMismatch));
         }
 
@@ -455,7 +456,7 @@ namespace ObjectsComparer.Tests
 
             var isEqual = comparer.Compare(a1, a2);
 
-            Assert.IsTrue(isEqual);
+            Assert.That(isEqual);
         }
 
         [Test]
@@ -468,10 +469,10 @@ namespace ObjectsComparer.Tests
 
             var differences = comparer.CalculateDifferences(list1, list2).ToList();
 
-            Assert.AreEqual(1, differences.Count);
-            Assert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
-            Assert.AreEqual("2", differences.First().Value1);
-            Assert.AreEqual("1", differences.First().Value2);
+            ClassicAssert.AreEqual(1, differences.Count);
+            ClassicAssert.AreEqual(DifferenceTypes.NumberOfElementsMismatch, differences.First().DifferenceType);
+            ClassicAssert.AreEqual("2", differences.First().Value1);
+            ClassicAssert.AreEqual("1", differences.First().Value2);
         }
     }
 }

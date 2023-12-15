@@ -14,7 +14,7 @@ namespace ObjectsComparer.Tests
 
             var settingValue = settings.GetCustomSetting<string>();
 
-            Assert.AreEqual("test string", settingValue);
+            ClassicAssert.AreEqual("test string", settingValue);
         }
 
         [Test]
@@ -27,8 +27,8 @@ namespace ObjectsComparer.Tests
             var setting1Value = settings.GetCustomSetting<int>("setting1");
             var setting2Value = settings.GetCustomSetting<int>("setting2");
 
-            Assert.AreEqual(123, setting1Value);
-            Assert.AreEqual(234, setting2Value);
+            ClassicAssert.AreEqual(123, setting1Value);
+            ClassicAssert.AreEqual(234, setting2Value);
         }
 
         [Test]
