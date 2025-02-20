@@ -15,12 +15,13 @@
     <PackageTags>C#, compare, class, reflection, object, comparison</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   
 
   <ItemGroup>
-    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.Dynamic.Runtime"/>
   </ItemGroup>
 
   <ItemGroup>
